@@ -18,3 +18,16 @@ stage('build docker image'){
       }
 
     }
+    stage('push image to hub'){
+        step{
+            script{
+                withCredential([string(credentialsId: 'dockerhub-pwd', varibale: 'dockerhubpwd')]) {
+                sh ' docker login -u username -p ${variable}'
+
+                }
+                sh 'docker push aliasname/iamgename'
+            }
+        }
+    }
+  }
+}
