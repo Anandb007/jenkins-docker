@@ -23,11 +23,10 @@ stage('build docker image'){
             script{
                 withCredential([string(credentialsId: 'dockerhub-pwd', varibale: 'dockerhubpwd')]) {
                 sh ' docker login -u username -p ${variable}'
-
                 }
-                sh 'docker push aliasname/iamgename'
+                   sh 'docker push aliasname/iamgename'
+                }
             }
         }
     }
-  }
 }
