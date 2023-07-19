@@ -1,4 +1,3 @@
-# new branch created for practice purpose
 pipeline {
     agent any
     tools{
