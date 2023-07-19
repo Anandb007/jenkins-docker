@@ -1,3 +1,5 @@
+#first line added into the pracrice branch
+#new bracnh added 
 pipeline {
     agent any
     tools{
@@ -6,7 +8,7 @@ pipeline {
     Stages{
          Stage('build maven'){
             Steps{
-                checkout([checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Anandb007/jenkins-docker.git']]])])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Anandb007/practice.git']]])
                 sh 'mvn clean install'
             }
         }
@@ -23,11 +25,10 @@ stage('build docker image'){
             script{
                 withCredential([string(credentialsId: 'dockerhub-pwd', varibale: 'dockerhubpwd')]) {
                 sh ' docker login -u username -p ${variable}'
-
                 }
-                sh 'docker push aliasname/iamgename'
+                   sh 'docker push aliasname/iamgename'
+                }
             }
         }
     }
-  }
 }
