@@ -6,6 +6,7 @@ pipeline any update ill do{
         maven 'maven_3_5_0'
     }
     Stages{
+    #stage for build purpose
          Stage('build maven'){
             Steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Anandb007/practice.git']]])
