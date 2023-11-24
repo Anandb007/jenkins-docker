@@ -8,7 +8,7 @@ pipeline any update ill do{
     Stages{
          Stage('build maven'){
             Steps{
-                #docker images pusing into dockerhub. keep practice 
+                #docker images pusing into dockerhub. keep practice. developed by docker agent
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Anandb007/practice.git']]])
                 sh 'mvn clean install'
             }
